@@ -3,8 +3,10 @@
   "version": "2.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --config webpack.config.dev.js"
+    "start": "webpack serve --config webpack.config.dev.js",
+    "build-dev": "webpack --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.js",
+    "build-serve": "webpack serve --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +36,12 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "@babel/runtime": "^7.16.5",
+    "axios": "^0.24.0",
+    "normalize.css": "^8.0.1",
+    "react-loading": "^2.0.3",
+    "react-hot-toast": "^2.1.1"
   },
   "description": ""
 }
