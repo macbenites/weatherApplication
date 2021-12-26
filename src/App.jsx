@@ -12,16 +12,15 @@ export default () => {
   const Footer = React.lazy(() => import("./components/Footer.jsx"));
 
   return (
-    <Suspense fallback="<h1>Cargando<h1/>">
+    <Suspense fallback="<h1>Cargando</h1>">
       <PageContainer>
         <ContentWrap>
           <Context.Provider>
             <BrowserRouter>
               <Layout>
                 <Routes>
-                  <Route path="/about" element={<About />} />
+                  <Route exact path="/about" element={<About />} />
                   <Route exact path="/" element={<Cards />} />
-                  <Route exact path="/" element={<Footer />} />
                   <Route exact path="/ciudad/:ciudadId" element={<City />} />
                 </Routes>
                 <Toaster />
