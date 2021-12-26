@@ -22,6 +22,7 @@ export default () => {
                   <Route exact path="/about" element={<About />} />
                   <Route exact path="/" element={<Cards />} />
                   <Route exact path="/ciudad/:ciudadId" element={<City />} />
+                  <Route path="*" element={<h2>Not Found</h2>} />
                 </Routes>
                 <Toaster />
               </Layout>
