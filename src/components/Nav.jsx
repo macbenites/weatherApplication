@@ -17,7 +17,6 @@ function Nav() {
       <Hamburger
         onClick={() => {
           setIsOpen(!isOpen);
-          console.log(isOpen);
         }}
       >
         <span />
@@ -26,16 +25,34 @@ function Nav() {
       </Hamburger>
       <NavMenu isOpen={isOpen}>
         <ContainerLink>
-          <NavLink to="/">Home</NavLink>
+          <NavLink
+            to="/"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            Home
+          </NavLink>
         </ContainerLink>
         <ContainerLink>
-          <NavLink to="/">Our</NavLink>
+          <NavLink
+            to="/"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            Projects
+          </NavLink>
         </ContainerLink>
         <ContainerLink>
-          <NavLink to="/">Projects</NavLink>
-        </ContainerLink>
-        <ContainerLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink
+            to="/about"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            About
+          </NavLink>
         </ContainerLink>
       </NavMenu>
     </NavContent>
@@ -47,7 +64,8 @@ const NavContent = styled.nav`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2rem 2rem;
+  /* background-color: #16161a; */
+  padding: 1rem 2rem;
   margin-bottom: 2rem;
 `;
 const LogoNav = styled.div`
@@ -58,7 +76,7 @@ const ContainerLink = styled.div`
   justify-content: center;
   align-items: center;
   height: 2.8rem;
-
+  margin: 0 1rem;
   &:hover {
     text-decoration: none;
     width: 100%;
@@ -71,9 +89,6 @@ const ContainerLink = styled.div`
     &:hover {
       background-color: transparent;
     }
-
-    margin-right: 1rem;
-    margin-left: 1rem;
   }
 `;
 const IconLink = styled(Link)`
@@ -135,7 +150,7 @@ const NavMenu = styled.div`
     width: 100%;
     height: 300px;
     max-height: ${({ isOpen }) => (isOpen ? "600px" : "0")};
-    transition: max-height 0.3s ease-in;
+    transition: max-height 0.2s ease-in;
   }
 `;
 const NavLink = styled(Link)`
@@ -145,8 +160,14 @@ const NavLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   &:hover {
-    color: #fffffe;
+    color: #7f5af0;
     text-decoration: none;
+  }
+  @media screen and (max-width: 768px) {
+    &:hover {
+      color: #fffffe;
+      text-decoration: none;
+    }
   }
 `;
 export default Nav;

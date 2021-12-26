@@ -19,13 +19,14 @@ function Footer() {
           </TextLogo>
         </Logo>
         <p>
-          Happy Hues, plus the majority of my side-projects, are designed &
-          built visually (without code) using
+          The purpose of WeatherApp is to display detailed information about the
+          consulted city.
         </p>
       </Description>
       <FooterLower>
         <p>
-          &copy; {new Date().getFullYear()} WeatherApp. All Rights Reserved.
+          MIT License &copy; {new Date().getFullYear()} Developed by Marlon
+          Acosta.
         </p>
         <Contact>
           <LinkContact

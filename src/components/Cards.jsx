@@ -2,25 +2,31 @@ import { Context } from "../Context.js";
 import Card from "./Card.jsx";
 import styled from "styled-components";
 import { useContext } from "react";
+import Home from "./Home.jsx";
 
 export default function Cards() {
   const { cities } = useContext(Context);
+  console.log(cities);
   return (
     <CardsContainer className="cards">
-      {cities?.map((c) => (
-        <Card
-          id={c.id}
-          key={c.id}
-          humidity={c.humidity}
-          pressure={c.pressure}
-          name={c.name}
-          img={c.img}
-          temp={c.temp}
-          wind={c.wind}
-          min={c.min}
-          description={c.description}
-        />
-      ))}
+      {cities.length > 0 ? (
+        cities?.map((c) => (
+          <Card
+            id={c.id}
+            key={c.id}
+            humidity={c.humidity}
+            pressure={c.pressure}
+            name={c.name}
+            img={c.img}
+            temp={c.temp}
+            wind={c.wind}
+            min={c.min}
+            description={c.description}
+          />
+        ))
+      ) : (
+        <Home />
+      )}
     </CardsContainer>
   );
 }
