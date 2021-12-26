@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import blob from "../img/blob.png";
+import { Helmet } from "react-helmet";
 
 export default function About() {
   return (
     <AboutContainer>
+      <Helmet>
+        <title>AboutMe</title>
+      </Helmet>
       <AboutMe>
         <h1>
           Hey There 👋 ,
@@ -22,8 +26,7 @@ export default function About() {
     </AboutContainer>
   );
 }
-
-const AboutContainer = styled.div`
+export const AboutContainer = styled.div`
   background-color: #16161a;
   padding: 1rem 2rem;
   display: flex;
@@ -34,7 +37,7 @@ const AboutContainer = styled.div`
   margin: 2rem 2rem;
   padding: 3rem 3rem;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-around;
     margin: 2rem 3rem;
@@ -42,7 +45,7 @@ const AboutContainer = styled.div`
   }
 `;
 
-const AboutMe = styled.div`
+export const AboutMe = styled.div`
   h1 {
     color: #fffffe;
   }
@@ -52,7 +55,7 @@ const AboutMe = styled.div`
   img {
     width: 100%;
   }
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     max-width: 40%;
   }
 `;

@@ -57,6 +57,8 @@ const Info = styled.div`
 `;
 const DrawHome = styled.img`
   width: 100%;
+  max-width: 1000px;
+  max-height: 600px;
   @media screen and (min-width: 768px) {
     max-width: 40%;
   }

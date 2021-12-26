@@ -56,7 +56,7 @@ const Search = styled.form`
   margin: 2rem;
   font-size: 1.2em;
   border-radius: 5px;
-  border: solid 2px #010101;
+  border: solid 2px #16161a;
 
   &:hover {
     outline: 3px solid transparent;

@@ -85,7 +85,7 @@ const ContainerLink = styled.div`
     border-radius: 0.313rem;
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     &:hover {
       background-color: transparent;
     }
@@ -133,7 +133,7 @@ const Hamburger = styled.div`
     border-radius: 5px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     display: flex;
   }
 `;
@@ -142,7 +142,7 @@ const NavMenu = styled.div`
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -163,7 +163,7 @@ const NavLink = styled(Link)`
     color: #7f5af0;
     text-decoration: none;
   }
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     &:hover {
       color: #fffffe;
       text-decoration: none;

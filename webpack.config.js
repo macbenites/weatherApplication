@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPLugin = require("css-minimizer-webpack-plugin");
+const CSSMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
@@ -11,9 +11,14 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/main.[contenthash].js",
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].bundle.js",
     publicPath: "/",
+    // path: path.resolve(__dirname, 'dist'),
+    // filename: '[name].bundle.js',
+    // chunkFilename: '[name].bundle.js',
   },
+
   resolve: {
     extensions: [".js", ".jsx"],
     /*alias: {
@@ -85,6 +90,30 @@ module.exports = {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new CssMinimizerPLugin(), new TerserPlugin()],
+    minimizer: [new CSSMinimizerPlugin(), new TerserPlugin()],
+    splitChunks: {
+      chunks: "all",
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          chunks: "all",
+          name: "commons",
+          filename: "assets/common.[chunkhash].js",
+          reuseExistingChunk: true,
+          enforce: true,
+          priority: 20,
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "all",
+          name: "vendors",
+          filename: "assets/vendor.[chunkhash].js",
+          reuseExistingChunk: true,
+          enforce: true,
+          priority: 10,
+        },
+      },
+    },
   },
 };
