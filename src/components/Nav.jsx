@@ -9,7 +9,9 @@ function Nav() {
       <IconLink to="/">
         <Logo>
           <img src={logo} alt="Weather" />
-          Weather<span>App</span>
+          <LogoNav>
+            Weather<span>App</span>
+          </LogoNav>
         </Logo>
       </IconLink>
       <Hamburger
@@ -45,10 +47,12 @@ const NavContent = styled.nav`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0.3rem 2rem;
+  padding: 2rem 2rem;
   margin-bottom: 2rem;
 `;
-
+const LogoNav = styled.div`
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+`;
 const ContainerLink = styled.div`
   display: flex;
   justify-content: center;
@@ -86,6 +90,8 @@ const IconLink = styled(Link)`
 `;
 
 const Logo = styled.div`
+  display: flex;
+  align-items: center;
   font-weight: 600;
   font-size: 1.7rem;
   span {

@@ -2,29 +2,40 @@ import Context from "./Context.js";
 import About from "./components/About.jsx";
 import Cards from "./components/Cards.jsx";
 import City from "./components/City.jsx";
-import { Route, Routes, Switch } from "react-router-dom";
-import styled from "styled-components";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import { Toaster } from "react-hot-toast";
+import Footer from "./components/Footer.jsx";
+import styled from "styled-components";
 
 export default () => {
   return (
-    <Context.Provider>
-      <Container>
-        <Layout>
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route exact path="/" element={<Cards />} />
-            <Route exact path="/ciudad/:ciudadId" element={<City />} />
-          </Routes>
-          <Toaster />
-        </Layout>
-      </Container>
-    </Context.Provider>
+    <PageContainer>
+      <ContentWrap>
+        <Context.Provider>
+          <BrowserRouter>
+            <Layout>
+              <Routes>
+                <Route path="/about" element={<About />} />
+                <Route exact path="/" element={<Cards />} />
+                <Route exact path="/" element={<Footer />} />
+                <Route exact path="/ciudad/:ciudadId" element={<City />} />
+              </Routes>
+              <Toaster />
+            </Layout>
+          </BrowserRouter>
+        </Context.Provider>
+      </ContentWrap>
+      <Footer />
+    </PageContainer>
   );
 };
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+const ContentWrap = styled.div`
+  flex: 1;
 `;

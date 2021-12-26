@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import { useCityByName } from "../hooks/useCity";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react/cjs/react.development";
 import { Context } from "../Context";
 import toast from "react-hot-toast";
 
@@ -36,7 +35,6 @@ function SearchBar() {
   return (
     <SearchContainer>
       <Search onSubmit={useOnSubmit}>
-        {/* <MdSearch size={"1.5rem"} color="#fffffe" /> */}
         <input
           type="text"
           placeholder="Buscar ciudad..."
@@ -51,14 +49,14 @@ function SearchBar() {
 }
 
 const Search = styled.form`
-  padding: 0.4rem 1rem;
-  margin: 2rem;
-  font-size: 1.2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #242629;
+  padding: 0.4rem 1rem;
+  margin: 2rem;
+  font-size: 1.2em;
   border-radius: 5px;
+  border: solid 2px #010101;
 
   &:hover {
     outline: 3px solid transparent;

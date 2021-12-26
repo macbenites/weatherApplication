@@ -30,4 +30,5 @@ export const CardsContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin: 2rem 0;
 `;

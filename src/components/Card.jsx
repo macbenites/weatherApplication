@@ -74,9 +74,9 @@ export default function Card({
 }
 
 const CardContent = styled.div`
-  background-color: #242629;
+  background-color: #16161a;
   border-radius: 1rem;
-  width: 320px;
+  width: 250px;
   height: auto;
   padding: 1.3rem 2rem;
   position: relative;
@@ -88,15 +88,6 @@ const ButtonClose = styled.img`
   margin: 0 auto;
   width: 1.3rem;
   height: 1.3rem;
-  border-radius: 50%;
-  background-color: #dc3e45;
-  border: none;
-  color: white;
-
-  &:hover {
-    outline: none;
-    background-color: #bd2130;
-  }
 `;
 const FontTemp = styled.div`
   color: azure;
