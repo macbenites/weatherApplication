@@ -1,33 +1,37 @@
+import React, { Suspense } from "react";
 import Context from "./Context.js";
-import About from "./components/About.jsx";
-import Cards from "./components/Cards.jsx";
-import City from "./components/City.jsx";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Layout from "./components/Layout.jsx";
 import { Toaster } from "react-hot-toast";
-import Footer from "./components/Footer.jsx";
 import styled from "styled-components";
 
 export default () => {
+  const Layout = React.lazy(() => import("./components/Layout.jsx"));
+  const About = React.lazy(() => import("./components/About.jsx"));
+  const Cards = React.lazy(() => import("./components/Cards.jsx"));
+  const City = React.lazy(() => import("./components/City.jsx"));
+  const Footer = React.lazy(() => import("./components/Footer.jsx"));
+
   return (
-    <PageContainer>
-      <ContentWrap>
-        <Context.Provider>
-          <BrowserRouter>
-            <Layout>
-              <Routes>
-                <Route path="/about" element={<About />} />
-                <Route exact path="/" element={<Cards />} />
-                <Route exact path="/" element={<Footer />} />
-                <Route exact path="/ciudad/:ciudadId" element={<City />} />
-              </Routes>
-              <Toaster />
-            </Layout>
-          </BrowserRouter>
-        </Context.Provider>
-      </ContentWrap>
-      <Footer />
-    </PageContainer>
+    <Suspense fallback="<h1>Cargando<h1/>">
+      <PageContainer>
+        <ContentWrap>
+          <Context.Provider>
+            <BrowserRouter>
+              <Layout>
+                <Routes>
+                  <Route path="/about" element={<About />} />
+                  <Route exact path="/" element={<Cards />} />
+                  <Route exact path="/" element={<Footer />} />
+                  <Route exact path="/ciudad/:ciudadId" element={<City />} />
+                </Routes>
+                <Toaster />
+              </Layout>
+            </BrowserRouter>
+          </Context.Provider>
+        </ContentWrap>
+        <Footer />
+      </PageContainer>
+    </Suspense>
   );
 };
 const PageContainer = styled.div`
