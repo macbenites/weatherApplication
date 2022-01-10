@@ -3,6 +3,7 @@ import Context from "./Context.js";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import styled from "styled-components";
+import Loader from "./components/Loader.jsx";
 
 export default () => {
   const Layout = React.lazy(() => import("./components/Layout.jsx"));
@@ -12,7 +13,7 @@ export default () => {
   const Footer = React.lazy(() => import("./components/Footer.jsx"));
 
   return (
-    <Suspense fallback="<h1>Cargando</h1>">
+    <Suspense fallback={<Loader />}>
       <PageContainer>
         <ContentWrap>
           <Context.Provider>

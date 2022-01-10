@@ -1,20 +1,22 @@
 import { createGlobalStyle } from "styled-components";
-import background from "./img/background.svg";
 
 export const GlobalStyles = createGlobalStyle`
+
+:root{
+     --main-color : #242629;
+     --background-color: #16161a; 
+     --link-color : #7f5af0;
+     --headline : #fffffe;
+     --tertiary : #2cb67d;
+     --paragraph : #94a1b2;
+     --border : #34394E;
+}
 
 html, body{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: url(${background}) ;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Montserrat', sans-serif;
-
-
-    
+    background-color: var(--main-color);
+    font-family: 'Montserrat', sans-serif; 
 }
 `;

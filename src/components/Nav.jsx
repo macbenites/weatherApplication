@@ -36,22 +36,12 @@ function Nav() {
         </ContainerLink>
         <ContainerLink>
           <NavLink
-            to="/"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            Projects
-          </NavLink>
-        </ContainerLink>
-        <ContainerLink>
-          <NavLink
             to="/about"
             onClick={() => {
               setIsOpen(!isOpen);
             }}
           >
-            About
+            AboutMe
           </NavLink>
         </ContainerLink>
       </NavMenu>
@@ -64,7 +54,6 @@ const NavContent = styled.nav`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  /* background-color: #16161a; */
   padding: 1rem 2rem;
   margin-bottom: 2rem;
 `;
@@ -81,7 +70,7 @@ const ContainerLink = styled.div`
     text-decoration: none;
     width: 100%;
     height: 2.8rem;
-    background-color: #7f5af0;
+    background-color: var(--link-color);
     border-radius: 0.313rem;
   }
 
@@ -93,14 +82,14 @@ const ContainerLink = styled.div`
 `;
 const IconLink = styled(Link)`
   font-size: 1.2rem;
-  color: #fffffe;
+  color: var(--headline);
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
     text-decoration: none;
-    color: #fffffe;
+    color: var(--headline);
   }
 `;
 
@@ -128,7 +117,7 @@ const Hamburger = styled.div`
   span {
     height: 4px;
     width: 25px;
-    background: #fffffe;
+    background: var(--headline);
     margin-bottom: 4px;
     border-radius: 5px;
   }
@@ -155,17 +144,17 @@ const NavMenu = styled.div`
 `;
 const NavLink = styled(Link)`
   font-size: 1.1rem;
-  color: #94a1b2;
+  color: var(--paragraph);
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   &:hover {
-    color: #7f5af0;
+    color: var(--link-color);
     text-decoration: none;
   }
   @media (max-width: 768px) {
     &:hover {
-      color: #fffffe;
+      color: var(--headline);
       text-decoration: none;
     }
   }

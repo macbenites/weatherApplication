@@ -1,12 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import logo from "../img/Sun.svg";
-import {
-  FaInstagram,
-  FaLinkedin,
-  FaGithub,
-  FaFacebookSquare,
-  FaReact,
-} from "react-icons/fa";
+
+import { FaInstagram, FaLinkedin, FaGithub, FaReact } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -19,8 +14,9 @@ function Footer() {
           </TextLogo>
         </Logo>
         <p>
-          The purpose of WeatherApp is to display detailed information about the
-          consulted city.
+          The purpose of WeatherApp is to show detailed information about the
+          consulted city, and also to be able to practice frontend web
+          development.
         </p>
       </Description>
       <FooterLower>
@@ -29,42 +25,36 @@ function Footer() {
           Acosta.
         </p>
         <Contact>
-          <li>
-            <LinkContact
-              href="https://www.instagram.com/marlonacostab/"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <FaInstagram size={"2.3rem"} />
-            </LinkContact>
-          </li>
-          <li>
-            <LinkContact
-              href="https://www.linkedin.com/in/marlonalexisacostabenites/"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <FaLinkedin size={"2.3rem"} />
-            </LinkContact>
-          </li>
-          <li>
-            <LinkContact
-              href="https://github.com/macbenites"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <FaGithub size={"2.3rem"} />
-            </LinkContact>
-          </li>
-          <li>
-            <LinkContact
-              href="https://reactjs.org/"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Rotate size={"2.3rem"} />
-            </LinkContact>
-          </li>
+          <LinkContact
+            href="https://www.instagram.com/marlonacostab/"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            <FaInstagram size={"2.3rem"} />
+          </LinkContact>
+
+          <LinkContact
+            href="https://www.linkedin.com/in/marlonalexisacostabenites/"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            <FaLinkedin size={"2.3rem"} />
+          </LinkContact>
+
+          <LinkContact
+            href="https://github.com/macbenites"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            <FaGithub size={"2.3rem"} />
+          </LinkContact>
+          <LinkContact
+            href="https://reactjs.org/"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            <Rotate size={"2.3rem"} />
+          </LinkContact>
         </Contact>
       </FooterLower>
     </FootContent>
@@ -75,12 +65,17 @@ export default Footer;
 
 const FootContent = styled.footer`
   padding: 1rem 2rem;
-  background-color: #16161a;
-  color: #94a1b2;
+  position: relative;
+  color: var(--paragraph);
+  background-color: var(--background-color);
 `;
 
 const TextLogo = styled.div`
   text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.1);
+  span {
+    font-weight: 100;
+    font-size: 1.3rem;
+  }
 `;
 const FooterLower = styled.div`
   display: flex;
@@ -104,23 +99,19 @@ const Description = styled.div`
   justify-content: space-between;
   margin-top: 3rem;
   text-align: left;
-  max-width: 350px;
+  max-width: 300px;
   flex-direction: column;
 `;
 
-const Contact = styled.ul`
+const Contact = styled.div`
   display: flex;
-  justify-content: space-around;
-  max-width: 350px;
-  color: #94a1b2;
-  li {
-    list-style: none;
-  }
+  justify-content: space-between;
+  color: var(--paragraph);
 `;
 
 const LinkContact = styled.a`
-  margin: 0 2rem;
-  color: #94a1b2;
+  margin: 0 1rem;
+  color: var(--paragraph);
 `;
 
 const Logo = styled.div`
@@ -128,11 +119,8 @@ const Logo = styled.div`
   align-items: center;
   font-weight: 600;
   font-size: 1.7rem;
-  color: #fffffe;
-  span {
-    font-weight: 100;
-    font-size: 1.3rem;
-  }
+  color: var(--headline);
+
   @media (min-width: 768px) {
     img {
       display: none;

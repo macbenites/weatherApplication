@@ -12,7 +12,7 @@ const Provider = ({ children }) => {
 
     handleCities: (city) => {
       !cities.find((c) => c.id === parseInt(city.id)) &&
-        cities.length < 4 &&
+        cities.length < 8 &&
         setCities([...cities, city]);
     },
   };

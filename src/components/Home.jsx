@@ -12,7 +12,11 @@ function Home() {
           <br /> your weather
         </h1>
         <p>
-          Find the meteorological compilation of different real-time sources.
+          When you search for a city name in the <strong>WeatherApp</strong>,
+          you will get a card with weather information. Also, by clicking on the
+          name of the city you will be able to get much more information about
+          the weather in the city. And remember that you can only search a
+          maximum of 3 cities.
         </p>
       </Info>
       <DrawHome src={homeDraw} alt="weatherHome" />
@@ -23,7 +27,7 @@ function Home() {
 export default Home;
 
 const HomeContainer = styled.div`
-  background-color: #16161a;
+  background-color: var(--background-color);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-evenly;
@@ -42,11 +46,11 @@ const HomeContainer = styled.div`
 
 const Info = styled.div`
   h1 {
-    color: #fffffe;
+    color: var(--headline);
     margin: 0%;
   }
   p {
-    color: #94a1b2;
+    color: var(--paragraph);
   }
   img {
     width: 100%;

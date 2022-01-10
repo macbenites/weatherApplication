@@ -37,7 +37,7 @@ function SearchBar() {
       <Search onSubmit={useOnSubmit}>
         <input
           type="text"
-          placeholder="Buscar ciudad..."
+          placeholder="Search City..."
           value={search}
           autoComplete="off"
           required
@@ -56,15 +56,15 @@ const Search = styled.form`
   margin: 2rem;
   font-size: 1.2em;
   border-radius: 5px;
-  border: solid 2px #16161a;
+  border: solid 2px var(--background-color);
 
   &:hover {
     outline: 3px solid transparent;
-    border: solid 2px #7f5af0;
+    border: solid 2px var(--link-color);
   }
 
   input {
-    color: #fffffe;
+    color: var(--headline);
     padding: 5px;
     outline: none;
     border: none;

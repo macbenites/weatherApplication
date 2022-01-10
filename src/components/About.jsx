@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import blob from "../img/blob.png";
 import { Helmet } from "react-helmet";
 
@@ -10,11 +10,7 @@ export default function About() {
         <title>AboutMe</title>
       </Helmet>
       <AboutMe>
-        <h1>
-          Hey There 👋 ,
-          <br />
-          I'm Marlon Acosta
-        </h1>
+        <Effect>¡Hello World!</Effect>
         <p>
           I'm currently studying computer systems engineering and I recently
           joined a bootcamp to be a full stack web developer because since I
@@ -22,13 +18,12 @@ export default function About() {
           passion, that's why I keep learning and researching constantly 🙌🚀
         </p>
       </AboutMe>
-      <img src={blob} alt="Picture" />
+      {/* <img src={blob} alt="Picture" /> */}
     </AboutContainer>
   );
 }
 export const AboutContainer = styled.div`
-  background-color: #16161a;
-  padding: 1rem 2rem;
+  background-color: var(--background-color);
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -41,16 +36,36 @@ export const AboutContainer = styled.div`
     flex-direction: row;
     justify-content: space-around;
     margin: 2rem 3rem;
-    padding: 3rem 0;
+    padding: 3rem 3rem;
   }
 `;
 
-export const AboutMe = styled.div`
-  h1 {
-    color: #fffffe;
+const typing = keyframes`
+  from {width :0}
+`;
+
+const blink = keyframes`
+  50%{
+    border-color: transparent;
   }
+`;
+
+const Effect = styled.span`
+  font-size: 2rem;
+  font-family: monospace;
+  color: var(--headline);
+  margin: 2rem 0;
+  display: block;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 13ch;
+  animation: ${typing} 2s steps(13), ${blink} 0.5s infinite step-end alternate;
+  overflow: hidden;
+`;
+export const AboutMe = styled.div`
   p {
-    color: #94a1b2;
+    color: var(--paragraph);
+    font-size: 1.2rem;
   }
   img {
     width: 100%;

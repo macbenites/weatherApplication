@@ -17,17 +17,24 @@ function City() {
       </Helmet>
       {city && (
         <WeatherInfo>
-          <h2>{city?.name}</h2>
-          Temperatura: {Math.round(city?.temp || 0)} °<br />
-          Clima: {city?.weather}
+          <HeadLine>
+            <h2>{city?.name}</h2>
+            <img
+              src={`https://cdn.ipwhois.io/flags/${city?.country.toLowerCase()}.svg`}
+              alt="flag"
+            />
+          </HeadLine>
           <br />
-          Viento: {city?.wind} km/h
+          <strong>Temperature :</strong> {Math.round(city?.temp || 0)} °C
           <br />
-          Cantidad de nubes: {city?.clouds}
+          <strong>Weather :</strong> {city?.weather}
           <br />
-          Latitud: {city?.latitud}º<br />
-          Longitud: {city?.longitud}º<br />
-          Pais: {city?.country}
+          <strong>Wind :</strong> {city?.wind} km/h
+          <br />
+          <strong>Amount of Clouds :</strong> {city?.clouds}
+          <br />
+          <strong>Latitude :</strong> {city?.latitud}º<br />
+          <strong>Longitude :</strong> {city?.longitud}º<br />
           <br />
         </WeatherInfo>
       )}
@@ -37,28 +44,32 @@ function City() {
 export default City;
 
 const CityContainer = styled.div`
-  background-color: #16161a;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
   border-radius: 1rem;
-  margin: 2rem 2rem;
-  padding: 3rem 3rem;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 2rem 3rem;
-    padding: 3rem 0;
-  }
+  width: 250px;
+  height: auto;
+  padding: 1.3rem 2rem;
+  background-color: var(--background-color);
+  margin: 2rem auto;
 `;
 
 const WeatherInfo = styled.div`
   h2 {
-    color: #fffffe;
+    color: var(--headline);
+  }
+  color: var(--paragraph);
+  img {
+    width: 32px;
+    height: 24px;
+    border-radius: 5px;
   }
 
-  color: #94a1b2;
+  strong {
+    color: var(--headline);
+  }
+`;
+
+const HeadLine = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

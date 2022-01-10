@@ -6,6 +6,7 @@ import { Context } from "../Context";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import close from "../img/close.svg";
+import { FaMaxcdn } from "react-icons/fa";
 
 export default function Card({
   humidity,
@@ -13,7 +14,7 @@ export default function Card({
   name,
   img,
   id,
-  temp,
+  max,
   min,
   wind,
   description,
@@ -34,25 +35,20 @@ export default function Card({
           />
         </div>
         <FontTemp>
-          {temp} <span>/ {min} °C</span>
+          {max} <span>/ {min} °C</span>
           <br />
           <p>{description}</p>
         </FontTemp>
       </CardMiddle>
       <CardInfo>
-        {/* {infoCard.map((e) => (
-          <Info measure={e} />
-        ))} */}
         <InfoContainer>
           <InfoIcon>
-            {/* <WiStrongWind size={"2.3rem"} color={"344CB7"} /> */}
             <img src={windIcon} alt="Wind" width={"30px"} height={"30px"} />
           </InfoIcon>
           <div>{wind} km/h</div>
         </InfoContainer>
         <InfoContainer>
           <InfoIcon>
-            {/* <WiHumidity size={"2.3rem"} color={"A2D2FF"} /> */}
             <img src={humidityIcon} alt="Gout" width={"30px"} height={"30px"} />
           </InfoIcon>
           <div>{humidity} %</div>
@@ -74,12 +70,17 @@ export default function Card({
 }
 
 const CardContent = styled.div`
-  background-color: #16161a;
+  background-color: var(--background-color);
   border-radius: 1rem;
-  width: 250px;
+  width: 260px;
   height: auto;
   padding: 1.3rem 2rem;
   position: relative;
+  transition: 1s;
+  &:hover {
+    box-shadow: -1px 2px 12px 7px rgba(116, 112, 142, 0.25);
+    transition: 0.3s;
+  }
 `;
 const ButtonClose = styled.img`
   position: absolute;
@@ -90,8 +91,8 @@ const ButtonClose = styled.img`
   height: 1.3rem;
 `;
 const FontTemp = styled.div`
-  color: azure;
-  font-size: 2.6rem;
+  color: var(--headline);
+  font-size: 2.5rem;
   font-weight: bold;
   span {
     font-weight: lighter;
@@ -99,13 +100,13 @@ const FontTemp = styled.div`
   }
 `;
 const CardLink = styled(Link)`
-  color: white;
+  color: var(--headline);
   font-size: 1.3rem;
   font-weight: 600;
   text-decoration: none;
   &:hover {
     text-decoration: none;
-    color: blueviolet;
+    color: var(--link-color);
   }
 `;
 
@@ -113,7 +114,7 @@ const CardMiddle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #94a1b2;
+  color: var(--paragraph);
 
   h2 {
     margin: 0;
@@ -133,7 +134,7 @@ const CardInfo = styled.div`
   font-size: 0.8rem;
 `;
 const InfoContainer = styled.div`
-  color: white;
+  color: var(--headline);
   font-size: 0.8rem;
   font-weight: bold;
 `;
@@ -148,5 +149,5 @@ const InfoIcon = styled.div`
   -webkit-backdrop-filter: blur(2px) saturate(181%);
   background-color: rgba(255, 255, 255, 0.281);
   border-radius: 0.5rem;
-  color: white;
+  color: var(--headline);
 `;

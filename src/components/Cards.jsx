@@ -6,7 +6,6 @@ import Home from "./Home.jsx";
 
 export default function Cards() {
   const { cities } = useContext(Context);
-  console.log(cities);
   return (
     <CardsContainer className="cards">
       {cities.length > 0 ? (
@@ -18,7 +17,7 @@ export default function Cards() {
             pressure={c.pressure}
             name={c.name}
             img={c.img}
-            temp={c.temp}
+            max={c.max}
             wind={c.wind}
             min={c.min}
             description={c.description}
@@ -34,7 +33,7 @@ export default function Cards() {
 export const CardsContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
   flex-wrap: wrap;
   margin: 2rem 0;
 `;

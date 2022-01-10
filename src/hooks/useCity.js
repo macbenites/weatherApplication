@@ -6,9 +6,7 @@ import toast from "react-hot-toast";
 const API = "4ae2636d8dfbdc3044bede63951a019b";
 
 export const useCityById = (id) => {
-  // const [loading, setLoading] = useState(true);
   const [city, setCity] = useState([]);
-  // const [error, setError] = useState(false);
   const searchCityById = async (id) => {
     const response = await axios.get(
       `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${API}&units=metric`
@@ -20,7 +18,7 @@ export const useCityById = (id) => {
       img: data?.weather[0].icon,
       id: data?.id,
       wind: data?.wind.speed,
-      temp: Math.round(data?.main.temp),
+      temp: data?.main.temp,
       name: data?.name,
       weather: data?.weather[0].main,
       description: data?.weather[0].description,
@@ -57,7 +55,7 @@ export const useCityByName = () => {
       img: data?.weather[0].icon,
       id: data?.id,
       wind: data?.wind.speed,
-      temp: Math.round(data?.main.temp),
+      temp: data?.main.temp,
       name: data?.name,
       weather: data?.weather[0].main,
       description: data?.weather[0].description,
